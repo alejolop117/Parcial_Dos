@@ -10,10 +10,18 @@ public class Blue : MonoBehaviour, Iinteractable {
     float newSpeed = 4f;
    
     public void Interact(Player player) {
+        ChangeColor(player);
+        ChangeSpeed(player);
+    }
+
+    void ChangeColor(Player player) {
         playerRenderer = player.GetComponentInChildren<Renderer>();
-        speedPlayer = player.GetComponent<PlayerMovement>();
         myRenderer = GetComponent<Renderer>();
         playerRenderer.material.color = myRenderer.material.color;
+    }
+
+    void ChangeSpeed(Player player) {
+        speedPlayer = player.GetComponent<PlayerMovement>();
         speedPlayer.magnitud = newSpeed;
     }
 }
