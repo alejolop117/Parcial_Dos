@@ -5,11 +5,12 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public DataSO so;
-    string direction;
+    
     void Update()
     {
-        if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d")) {
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical")) {
             so.On_movement();
+            
         }
     }
 }

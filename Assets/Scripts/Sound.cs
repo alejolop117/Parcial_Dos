@@ -12,24 +12,22 @@ public class Sound : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<AudioSource>();
-        player.clip = clip;
     }
 
     private void OnEnable()
     {
-        channel.OnMovement += steps;
-       
+        channel.OnMovement += Steps;
+        player.clip = clip;
     }
 
     private void OnDisable()
     {
-        channel.OnMovement -= steps;
+        channel.OnMovement -= Steps;
     }
 
-    public void steps()
+    public void Steps()
     {
         
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("s") || Input.GetKeyDown("a") || Input.GetKeyDown("d"))
-            player.Play();
+        if(Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) player.Play();
     }
 }
