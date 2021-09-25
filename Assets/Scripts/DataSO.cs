@@ -11,8 +11,10 @@ public class DataSO : ScriptableObject
 
     public void On_movement() {
 
-        if(OnMovement != null) {
-            OnMovement();
-        }
+        //if(OnMovement != null) {
+        //    OnMovement();
+        //}
+        OnMovement?.Invoke();
     }
+
 }
